@@ -23,6 +23,39 @@ This project is part of the **10 Academy AI Mastery Week 2 Challenge**, where th
 - `cx_Oracle` – connecting to Oracle XE database
 
 ---
+## 🧪 Methodology
+
+### 🔹 Data Scraping
+
+We used the `google-play-scraper` Python library to extract user reviews for three Ethiopian banking apps: **CBE**, **BOA**, and **Dashen Bank**. For each app, over 400 reviews were collected to ensure diversity and volume.
+
+Key fields extracted:
+- `review`: User-written review content
+- `rating`: Integer rating (1 to 5)
+- `date`: Date the review was posted
+- `source`: Set to "Google Play"
+- `bank`: One of "CBE", "BOA", or "Dashen"
+
+The scraping was done in batches and saved as raw `.csv` files per app in the `data/raw_reviews/` folder.
+
+---
+
+### 🔹 Data Cleaning & Preprocessing
+
+After scraping, each dataset underwent preprocessing to ensure quality and consistency.
+
+Steps included:
+- **Removing Duplicates**: Eliminated repeated reviews based on text content.
+- **Standardizing Text**: Converted reviews to lowercase, removed URLs, non-ASCII characters, and excess whitespace.
+- **Filtering Noise**: Removed reviews with fewer than 3 words or missing key fields (e.g., no rating or date).
+- **Parsing Dates**: Standardized review dates using `pandas.to_datetime()`.
+- **Labeling**: Appended `bank` and `source` columns to each row to ensure traceability.
+
+The cleaned data was saved in `data/cleaned/` and combined into a single master file:  
+`all_clean_reviews.csv`
+
+This cleaned dataset is the basis for sentiment analysis, thematic grouping, and database storage.
+---
 
 ## 📂 Folder Structure
 
