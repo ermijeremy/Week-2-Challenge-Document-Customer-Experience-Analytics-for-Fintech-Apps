@@ -1,0 +1,35 @@
+# Python virtual environment
+venv/
+env/
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Logs and output
+*.log
+*.out
+
+# Data
+data/
+*.csv
+*.xlsx
+
+# Credentials (if any)
+*.env
+.env
+
+# Database dumps
+*.sql
+*.db
+
+# Large files
+*.zip
+*.tar.gz
